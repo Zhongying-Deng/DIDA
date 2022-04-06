@@ -1,0 +1,27 @@
+DATALOADER:
+  NUM_WORKERS: 4
+  TRAIN_X:
+    SAMPLER: 'RandomDomainSampler'
+    BATCH_SIZE: 30
+  TRAIN_U:
+    SAME_AS_X: False
+    BATCH_SIZE: 6
+  TEST:
+    BATCH_SIZE: 30
+
+OPTIM:
+  NAME: 'sgd'
+  LR: 0.02
+  STAGED_LR: True
+  NEW_LAYERS: ('backbone.layer1_dida', 'backbone.layer2_dida', 'backbone.layer3_dida', 'backbone.layer4_dida', 'classifier')
+  BASE_LR_MULT: 0.1
+  MAX_EPOCH: 40
+  LR_SCHEDULER: 'cosine'
+
+TRAIN:
+  PRINT_FREQ: 100
+
+TRAINER:
+  FIXMATCH:
+    STRONG_TRANSFORMS: ['random_flip', 'randaugment_fixmatch', 'normalize', 'cutout']
+

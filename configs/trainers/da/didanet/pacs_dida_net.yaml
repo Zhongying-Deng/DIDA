@@ -1,0 +1,26 @@
+DATALOADER:
+  NUM_WORKERS: 4
+  TRAIN_X:
+    SAMPLER: 'RandomDomainSampler'
+    BATCH_SIZE: 48
+  TRAIN_U:
+    SAME_AS_X: False
+    BATCH_SIZE: 16
+  TEST:
+    BATCH_SIZE: 100
+
+OPTIM:
+  NAME: 'adam'
+  LR: 0.0005
+  STAGED_LR: True
+  NEW_LAYERS: ('backbone.layer1_dida', 'backbone.layer2_dida', 'backbone.layer3_dida', 'backbone.layer4_dida', 'classifier')
+  # Learning rate for other layers (excluding new layers above): LR * BASE_LR_MULT = 5e-5
+  BASE_LR_MULT: 0.1
+
+  MAX_EPOCH: 100
+  LR_SCHEDULER: 'cosine'
+
+TRAINER:
+  FIXMATCH:
+     STRONG_TRANSFORMS: ['random_flip', 'randaugment_fixmatch', 'normalize', 'cutout']
+
