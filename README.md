@@ -1,6 +1,6 @@
 # DIDA-Net
 
-Pytorch implementation for DIDA-Net (["Zhongying Deng, Kaiyang Zhou, Da Li, Junjun He, Yi-Zhe Song, Tao Xiang. Dynamic Instance Domain Adaptation. arXiv:2203.05028"](https://arxiv.org/abs/2203.05028))
+Pytorch implementation for DIDA-Net (["Zhongying Deng, Kaiyang Zhou, Da Li, Junjun He, Yi-Zhe Song, Tao Xiang. Dynamic Instance Domain Adaptation. arXiv:2203.05028"](https://arxiv.org/abs/2203.05028)). This paper has been accepted to IEEE T-IP.
 
 ## Installation
 
@@ -9,7 +9,7 @@ When asked to overwrite, please say yes (some `__init__.py` files may be overwri
 Other files may also be different from the latest Dassl codebase, e.g. `dassl/optim/optimizer.py` is updated to set a different learning rate for new layers, and 
 `dassl/data/transforms/transforms.py` is from an old version of Dassl codebase which does not use center crop in testing).
 
-    After that, `pytorch 1.7.1 + cuda 10.1, python 3.7` should be installed.
+    After that, `pytorch 1.7.1 + cuda 10.1, python 3.7` should be installed. **Note that installing Dassl is a must.**
 
 2. If you only want to see the implementatation of DIDA-Net backbone, please directly refer to `dassl/modeling/backbone/resnet_dida.py` and `dassl/modeling/backbone/dida_module.py`. 
 You can modify these files to accommodate your own codebase. 
@@ -18,14 +18,14 @@ You can modify these files to accommodate your own codebase.
 
 1. Create a folder like `output/didanet_pacs` (under the Dassl root path) where checkpoint and log can be saved.
 
-2. Then run the bash script as
+2. Prepare the datasets (PACS, Digit-Five and DomainNet) as in [Dassl](https://github.com/VisionLearningGroup/VisionLearningGroup.github.io/tree/master/M3SDA/code_MSDA_digit#digit-five-download). Then run the bash script as
 ```bash
 bash train_didanet.sh /path/to/your/dataset
 ```
 
-3. The experiments on PACS will start running. In `train_didanet.sh`, `$DATA` denotes the directory where datasets are located. For example, there should be a folder named `pacs` under such directory, i.e., `/path/to/your/dataset/pacs`. 
+3. The experiments on **PACS** will start running. In `train_didanet.sh`, `$DATA` denotes the directory where datasets are located. For example, there should be a folder named `pacs` under such directory, i.e., `/path/to/your/dataset/pacs`. 
 
-    For the experiments on Digit-Five and DomainNet, specify the source and target domains using `--source-domains`, `--target-domains` and modify related config files in `train_didanet.sh`, e.g., `--dataset-config-file configs/datasets/da/digit5.yaml` and `--config-file configs/trainers/da/didanet/digit5_dida_net.yaml`.
+    For the experiments on **Digit-Five** and **DomainNet**, specify the source and target domains using `--source-domains`, `--target-domains` and modify related config files in `train_didanet.sh`, e.g., `--dataset-config-file configs/datasets/da/digit5.yaml` and `--config-file configs/trainers/da/didanet/digit5_dida_net.yaml`.
 
     Note that the detailed training settings are under the folder named `configs`, such as datasets (see `configs/datasets/da`), lr, optimizer etc. (see `configs/trainers/da/didanet`)
 
