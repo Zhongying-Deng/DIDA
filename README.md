@@ -1,6 +1,6 @@
 # DIDA-Net
 
-Pytorch implementation for DIDA-Net (["Zhongying Deng, Kaiyang Zhou, Da Li, Junjun He, Yi-Zhe Song, Tao Xiang. Dynamic Instance Domain Adaptation. arXiv:2203.05028"](https://arxiv.org/abs/2203.05028)). This paper has been accepted to IEEE T-IP.
+Pytorch implementation for DIDA-Net (["Zhongying Deng, Kaiyang Zhou, Da Li, Junjun He, Yi-Zhe Song, Tao Xiang. Dynamic Instance Domain Adaptation. arXiv:2203.05028"](https://arxiv.org/abs/2203.05028)). This paper has been accepted to IEEE T-IP ([the T-IP version](https://ieeexplore.ieee.org/document/9813442)).
 
 ## Installation
 
@@ -54,6 +54,18 @@ CUDA_VISIBLE_DEVICES=0 python tools/train.py --root $DATA --trainer FixMatch \
 ## Citation
 
 If you find this code useful, please consider citing the following paper:
+```
+@ARTICLE{9813442,
+  author={Deng, Zhongying and Zhou, Kaiyang and Li, Da and He, Junjun and Song, Yi-Zhe and Xiang, Tao},
+  journal={IEEE Transactions on Image Processing}, 
+  title={Dynamic Instance Domain Adaptation}, 
+  year={2022},
+  volume={31},
+  number={},
+  pages={4585-4597},
+  doi={10.1109/TIP.2022.3186531}}
+```
+or the arxiv version:
 ```
 @article{deng2022dynamic,
   title={Dynamic Instance Domain Adaptation},
