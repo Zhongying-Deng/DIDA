@@ -24,4 +24,5 @@ from .preact_resnet18 import preact_resnet18
 from .cnn_digit5_m3sda import cnn_digit5_m3sda
 
 from .resnet_dida import resnet18_dida, resnet34_dida, resnet50_dida, resnet101_dida, resnet152_dida
+from .resnet_dida_mixstyle import resnet18_dida_mixstyle, resnet34_dida_mixstyle, resnet50_dida_mixstyle, resnet101_dida_mixstyle, resnet152_dida_mixstyle
 from .cnn_digit5_m3sda_dida import cnn_digit5_m3sda_dida
