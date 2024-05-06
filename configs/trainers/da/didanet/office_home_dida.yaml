@@ -1,0 +1,26 @@
+DATALOADER:
+  NUM_WORKERS: 2
+  TRAIN_X:
+    SAMPLER: 'RandomDomainSampler'
+    BATCH_SIZE: 48
+  TRAIN_U:
+    SAME_AS_X: False
+    BATCH_SIZE: 16
+  TEST:
+    BATCH_SIZE: 100
+
+OPTIM:
+  NAME: 'adam'
+  LR: 0.0005
+  STAGED_LR: True
+  NEW_LAYERS: ('backbone.layer1_adap', 'backbone.layer_adap', 'backbone.layer4_adap', 'backbone.layer2_adap', 'backbone.layer3_adap', 'backbone.layer4_new', 'adaptive_cls', 'classifier', 'backbone.dist_net_conv')
+  BASE_LR_MULT: 0.1
+
+  MAX_EPOCH: 100
+  LR_SCHEDULER: 'cosine'
+
+TRAINER:
+  FIXMATCH:
+     STRONG_TRANSFORMS: ['random_flip', 'randaugment_fixmatch', 'normalize', 'cutout']
+     EMA_ALPHA: 0.999
+
